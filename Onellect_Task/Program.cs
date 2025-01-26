@@ -5,7 +5,7 @@ class Program
 {
     static async Task Main()
     {
-        var listToSend = GenerateDataAndPrint();
+        var listToSend = GenerateDataAndPrintList();
 
         string filePath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
 
@@ -16,7 +16,7 @@ class Program
         await apiClient.SendSortedNumbersAsync(listToSend);
     }
 
-    static List<int> GenerateDataAndPrint()
+    static List<int> GenerateDataAndPrintList()
     {
         Random random = new Random();
 
@@ -34,8 +34,7 @@ class Program
 
         int algorithmChoice = random.Next(1, 4); 
         List<int> numbersToSort = new List<int>(numbers);
-
-        Console.WriteLine("Выбор алгоритма сортировки:");
+        
         switch (algorithmChoice)
         {
             case 1:
@@ -52,7 +51,6 @@ class Program
                 break;            
         }
 
-        Console.WriteLine("Отсортированный список:");
         Console.WriteLine(string.Join(", ", numbersToSort));
 
         return numbersToSort;
@@ -88,9 +86,9 @@ class Program
                 }
             }
 
-            int temp = list[minIndex];
+            int val = list[minIndex];
             list[minIndex] = list[i];
-            list[i] = temp;
+            list[i] = val;
         }
     }
 
