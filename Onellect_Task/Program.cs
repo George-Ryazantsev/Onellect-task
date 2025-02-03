@@ -7,7 +7,7 @@ class Program
     {
         var listToSend = GenerateDataAndPrintList();
 
-        string filePath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
+        string filePath = Path.Combine(AppContext.BaseDirectory, "appconfig.json");
 
         var config = new ConfigurationBuilder().AddJsonFile(filePath).Build();
         string apiUrl = config["ApiUrl"];
